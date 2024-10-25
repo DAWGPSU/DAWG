@@ -1,0 +1,27 @@
+# moving files to scratch and sharing the access
+INPUT='/scratch/pmt5304'
+FOLDER=`pwd`
+mkdir -p $INPUT/data/raw
+mkdir -p $INPUT/data/reference/index
+mkdir -p $INPUT/data/output
+cp $FOLDER/data/reference/index/* $INPUT/data/reference/index/
+cp $FOLDER/data/raw/* $INPUT/data/raw/
+
+chmod 705 -R /scratch/pmt5304
+chmod 707 -R /scratch/pmt5304/data/output
+
+
+# creating a git pull request
+# https://www.youtube.com/watch?v=nCKdihvneS0&ab_channel=GitHub
+
+cd /Users/pmt5304/Documents/PhD/Extra/DAWG/DAWG_workshop 
+# create a new branch
+git checkout -b polina_updates
+# add, commit and push updates
+git status
+git add --all
+git commit -m "workshop2"
+git status
+git push origin polina_updates
+
+# create a pull request at git.com
